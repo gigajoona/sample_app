@@ -5,12 +5,14 @@ gem 'rails', '3.2.2'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-group :development, :test do
-  gem 'sqlite3'
-end
-group :production do
-  gem 'pg'
-end
+gem 'sqlite3'
+
+# group :development, :test do
+#  gem 'sqlite3'
+# end
+# group :production do
+#  gem 'pg'
+# end
 
 group :development do
   gem 'rspec-rails', '2.6.1'
