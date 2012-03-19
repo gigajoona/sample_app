@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   
   def show
      @user = User.find(params[:id])
-     @title = @user.name + "<script>"
+     @title = @user.name
    end
   
   def new
@@ -13,8 +13,10 @@ class UsersController < ApplicationController
   def create
    @user = User.new(params[:user])
    if @user.save
-     flash[:success] = "See, it works!"
-     redirect_to @user
+     sign_in @user
+     redirect_to @user, :flash => { :success => "See, it works!" }
+     # flash[:success] = "See, it works!"
+     # redirect_to @user
    else  
      @title = "Sign up"
      render 'new'
